@@ -1,76 +1,67 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
+#include <stdio.h>
+#include <string.h>
+#include <stlib.h>
 #include "produto.h"
 #include "util.h"
 
 struct Produto{
 
+    int cod;
+
     char* nome;
 
-    int valor;
+    int preco;
+
 
 };
 
+Produto *criaProduto(char* nome, int cod, int valor){
 
-Produto *criaProduto(char* nome, int valor){
-
-    Produto *p = (Produto*)malloc(sizeof(Produto));
+    Produto *p = (Produto*) malloc(sizeof(Produto));
 
     p->nome = nome;
 
-    p->valor = valor;
+    p->cod = cod;
+
+    p->preco = valor;
 
     return p;
-
-
 
 }
 
 Produto *lerProduto(){
-
     char* nome;
 
     int valor=0;
 
-    nome = leLinha();
+    int cod=0;
 
-    scanf("%d", &valor);
-    scanf("%*c");
-
-    Produto *p;
-
-    p = criaProduto(nome, valor);
+    nome = 
 
     return p;
+}
 
+void desalocaProduto(Produto *p){
 
+    if(p->nome !=NULL){
 
+        free(p->nome);
+        p->nome = NULL;
+
+    }
+
+    if(p != NULL){
+
+        free(p);
+        p = NULL;
+    }
 
 }
 
 void NotificaProduto(Produto *p){
     
-    printf("Item: %s, valor unitario: %d,", p->nome, p->valor);
-    
-
+    printf("Nome: %s\n", p->nome);
+    printf("Codigo: %d\n", p->cod);
+    printf("Preço: %d\n", p->preco);
 }
 
-void desalocaProduto(Produto *p){
-
-    if(p != NULL){
-
-        if(p->nome != NULL){
-
-            free(p->nome);
-            p->nome = NULL;
-
-        }
-
-        free(p);
-        p = NULL;
-
-    }
-
-}

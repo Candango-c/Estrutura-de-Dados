@@ -1,10 +1,9 @@
-#ifndef _PRODUTO_H
-#define _PRODUTO_H
-
+#ifndef PRODUTO_H
+#define PRODUTO_H
 
 typedef struct Produto Produto;
 
-Produto *criaProduto();
+Produto *criaProduto(char* nome, int cod, int valor);
 
 Produto *lerProduto();
 
