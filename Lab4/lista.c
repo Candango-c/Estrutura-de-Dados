@@ -50,7 +50,7 @@ void *insereNaLista (Produto* p, Lista* Lista){
     Lista->ult->prox = NULL;
 }
 
-void *retiraDaLista (Lista *Lista, int codSol){
+void retiraDaLista (Lista *Lista, int codSol){
 
     Celula* ant = NULL;
 
@@ -98,6 +98,7 @@ void *retiraDaLista (Lista *Lista, int codSol){
 
     }
 
+    desalocaProduto(p->produto);
     free(p);
 }
 
@@ -116,4 +117,18 @@ void *desalocaLista(Lista *l){
     }
 
     free(l);
+}
+
+void *imprimeLista(Lista *l){
+
+    Celula* aux;
+
+    aux = l->prim;
+
+    while(aux != NULL){
+
+        NotificaProduto(aux->produto);
+        aux = aux->prox;
+        printf("-----------------------\n");
+    }
 }

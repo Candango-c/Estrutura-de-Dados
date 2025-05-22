@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <stlib.h>
+#include <stdlib.h>
 #include "produto.h"
 #include "util.h"
 
@@ -36,7 +36,30 @@ Produto *lerProduto(){
 
     int cod=0;
 
-    nome = 
+    printf("Diga o nome do produto: ");
+
+    nome = leLinha();
+
+    printf("\n");
+
+    printf("Informe o codigo do produto: ");
+
+    scanf("%d", &cod);
+    scanf("%*c");
+
+    printf("\n");
+
+    printf("Digite o preço do produto: ");
+
+    scanf("%d", &valor);
+    scanf("%*c");
+
+    printf("\n");
+
+    Produto* p;
+
+    p = criaProduto(nome, cod, valor);
+
 
     return p;
 }

@@ -9,7 +9,7 @@ Lista *criaLista();
 
 void *insereNaLista(Produto* p, Lista* l);
 
-void *retiraDaLista(Lista *l, int codSol);
+void retiraDaLista(Lista *l, int codSol);
 
 void *desalocaLista(Lista *l);
 
