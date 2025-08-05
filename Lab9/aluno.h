@@ -34,6 +34,8 @@ void LeAluno(Aluno *aluno);
  */
 int ComparaMatricula(Aluno* aluno1, Aluno* aluno2);
 
+int retornaMatricula(Aluno* a);
+
 /**
  * @brief Calcula a média das notas de um aluno.
  * 

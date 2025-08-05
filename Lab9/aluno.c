@@ -61,6 +61,11 @@ int ComparaMatricula(Aluno* aluno1, Aluno* aluno2){
 
 }
 
+int retornaMatricula(Aluno* a){
+
+    return a->matricula;
+}
+
 int CalculaMediaAluno(Aluno* aluno){
 
     int media = 0;
@@ -88,5 +93,6 @@ int VerificaAprovacao(Aluno* aluno){
 void ImprimeAluno(Aluno* aluno){
 
     printf("%s\n", aluno->nome);
+    printf("%d\n", aluno->matricula);
 
 }

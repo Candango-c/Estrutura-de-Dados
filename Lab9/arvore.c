@@ -15,7 +15,6 @@ struct Arv{
 
 //Cria uma árvore vazia
 Arv* arv_criavazia (void){
-
     return NULL;
 }
 
@@ -34,16 +33,48 @@ Arv* arv_cria (Aluno* c, Arv* e, Arv* d){
 }
 
 //libera o espaço de memória ocupado pela árvore a
-Arv* arv_libera (Arv* a);
+Arv* arv_libera (Arv* a){
+
+    if(!arv_vazia(a)){
+        
+        ApagaAluno(a->aluno);
+        arv_libera(a->esq);
+        arv_libera(a->dir);
+        free(a);
+    }
+
+    return NULL;
+}
 
 //retorna true se a árvore estiver vazia e false caso contrário
-int arv_vazia (Arv* a);
+int arv_vazia (Arv* a){
+
+    return a==NULL;
+}
 
 //indica a ocorrência (1) ou não (0) do aluno (pela chave de busca mat)
-int arv_pertence (Arv* a, int mat);
+int arv_pertence (Arv* a, int mat){
+
+    if(arv_vazia(a)){
+        return 0; // a arvore esta vazia
+    } else{
+        if(retornaMatricula(a->aluno) == mat){
+            return 1;
+        } else {
+            return arv_pertence(a->esq, mat) || arv_pertence(a->dir, mat);
+        }
+    }
+}
 
 //imprime as informações dos nós da árvore
-void arv_imprime (Arv* a);
+void arv_imprime (Arv* a){
+
+    if(!arv_vazia(a)){
+        ImprimeAluno(a->aluno);
+        arv_imprime(a->esq);
+        arv_imprime(a->dir);
+    }
+}
 
 //retorna a mãe/pai de um dado no que contém o aluno com a matrícula mat
 Arv* arv_pai (Arv* a, int mat);
